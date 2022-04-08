@@ -6,19 +6,16 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar/Avatar';
-import { CharacterVm } from '../character-collection.vm';
 import * as classes from './character-card.styles';
+import { CharacterApi } from '../api';
 
 interface Props {
-  character: CharacterVm;
+  character: CharacterApi;
   // onEdit: (id: string) => void;
 }
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
-  const {
-    character,
-    // , onEdit
-  } = props;
+  const { character } = props;
 
   const navigate = useNavigate();
 

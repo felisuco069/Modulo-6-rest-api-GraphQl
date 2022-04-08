@@ -19,3 +19,9 @@ export interface CharacterApi {
   created: string;
   bestSentences?: string;
 }
+
+export interface getCharacterCollectionResponse {
+  characters: {
+    results: CharacterApi[];
+  };
+}

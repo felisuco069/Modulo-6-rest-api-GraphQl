@@ -1,20 +1,15 @@
 import * as React from 'react';
-import { CharacterVm } from './character-collection.vm';
-import { getCharacterCollection } from './api';
-import { mapFromApiToVm } from './character-collection.mapper';
-import { mapToCollection } from 'common/mappers';
+import { CharacterApi, getCharacterCollection } from './api';
 
 export const useCharacterCollection = () => {
   const [characterCollection, setCharacterCollection] = React.useState<
-    CharacterVm[]
+    CharacterApi[]
   >([]);
 
   const loadCharacterCollection = () => {
-    getCharacterCollection().then((result: any[]) => {
-      console.log(result);
-      setCharacterCollection(mapToCollection(result, mapFromApiToVm));
+    getCharacterCollection().then((result: CharacterApi[]) => {
+      setCharacterCollection(result);
     });
   };
-  console.log(characterCollection);
   return { characterCollection, loadCharacterCollection };
 };

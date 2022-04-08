@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Character } from './character.vm';
+import * as api from './api';
 import * as classes from './character.styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,12 +9,11 @@ import Typography from '@material-ui/core/Typography';
 import { CharacterDetail } from './character-card.detail';
 
 interface Props {
-  character: Character;
+  character: api.Character;
 }
 
 export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
   const { character } = props;
-
   return (
     <Card className={classes.root}>
       <CardMedia
@@ -34,7 +33,6 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
             Character Detail:
           </Typography>
         </CardContent>
-
         <CharacterDetail character={character} />
       </div>
     </Card>

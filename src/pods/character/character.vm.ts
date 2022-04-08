@@ -1,21 +1,6 @@
-export interface Character {
-  id: string;
-  name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-  origin: {
-    name: string;
-  };
-  location: {
-    name: string;
-  };
-  image: string;
-  bestSentences?: string[];
-}
+import * as api from './api';
 
-export const createEmptyCharacter = (): Character => {
+export const createEmptyCharacter = (): api.Character => {
   return {
     id: '',
     name: '',
