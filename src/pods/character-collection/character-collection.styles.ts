@@ -7,6 +7,25 @@ export const root = css`
   }
 `;
 
+export const search = css`
+  display: flex;
+  & > div {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: aliceblue;
+    & input {
+      color: darkblue;
+    }
+  }
+  & button {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: brown;
+    width: 5rem;
+  }
+`;
+
 export const list = css`
   display: grid;
   grid-template-columns: repeat(1, 1fr);

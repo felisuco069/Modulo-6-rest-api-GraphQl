@@ -11,7 +11,7 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
   const { id } = useParams();
 
   const handleLoadCharacter = (id: string) => {
-    api.getCharacter(id).then((character) => {
+    api.getCharacterById(id).then((character) => {
       setCharacter(character);
     });
   };

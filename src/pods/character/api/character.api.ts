@@ -4,7 +4,7 @@ import { grapfQlClient } from 'core/api/graphql.client';
 
 const url = 'https://rickandmortyapi.com/graphql';
 
-export const getCharacter = async (id: string): Promise<Character> => {
+export const getCharacterById = async (id: string): Promise<Character> => {
   const query = gql`
     query  {
       charactersByIds(ids: "${id}") {

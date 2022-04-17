@@ -7,10 +7,13 @@ import { grapfQlClient } from 'core/api/graphql.client';
 
 const url = 'https://rickandmortyapi.com/api';
 
-export const getCharacterCollection = async (): Promise<CharacterApi[]> => {
+export const getCharacterCollection = async (
+  page: number,
+  filterName: string
+): Promise<CharacterApi[]> => {
   const query = gql`
     query {
-      characters {
+      characters(page: ${page},filter: { name: "${filterName}" } ) {
         results {
           id
           image

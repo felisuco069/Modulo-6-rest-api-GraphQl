@@ -6,8 +6,8 @@ export const useCharacterCollection = () => {
     CharacterApi[]
   >([]);
 
-  const loadCharacterCollection = () => {
-    getCharacterCollection().then((result: CharacterApi[]) => {
+  const loadCharacterCollection = (page: number, filterName: string) => {
+    getCharacterCollection(page, filterName).then((result: CharacterApi[]) => {
       setCharacterCollection(result);
     });
   };
