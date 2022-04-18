@@ -1,7 +1,11 @@
 import { MyContextProvider } from 'core/context/myContext';
 import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import { CharacterCollectionScene, CharacterScene } from 'scenes';
+import {
+  CharacterCollectionScene,
+  CharacterScene,
+  LocationCollectionScene,
+} from 'scenes';
 
 export const RouterComponent: React.FunctionComponent = () => {
   return (
@@ -11,6 +15,9 @@ export const RouterComponent: React.FunctionComponent = () => {
           <Route path="/" element={<CharacterCollectionScene />} />
           <Route path="/characters" element={<CharacterCollectionScene />} />
           <Route path="/characters/:id" element={<CharacterScene />} />
+          <Route path="/locations" element={<LocationCollectionScene />} />
+          {/* <Route path="/episodes" element={<EpisodesCollectionScene />} /> */}
+          {/* <Route path="/characterList" element={<CharacterListCollectionScene />} /> */}
         </Routes>
       </MyContextProvider>
     </HashRouter>

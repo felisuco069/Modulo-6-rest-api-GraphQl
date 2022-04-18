@@ -7,6 +7,15 @@ export const root = css`
   }
 `;
 
+export const chooseCollection = css`
+  display: flex;
+  justify-content: flex-end;
+  & button {
+    background-color: blanchedalmond;
+    width: 5rem;
+  }
+`;
+
 export const search = css`
   display: flex;
   & > div {
@@ -16,13 +25,6 @@ export const search = css`
     & input {
       color: darkblue;
     }
-  }
-  & button {
-    margin-left: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    background-color: brown;
-    width: 5rem;
   }
 `;
 

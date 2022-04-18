@@ -4,13 +4,23 @@ export const content = css`
   margin: 2rem;
 `;
 
-export const realApiButton = css`
-  background-color: burlywood;
-  font-size: 0.8rem;
-  width: 14rem;
+export const viewButton = css`
+  display: flex;
+  justify-content: flex-end;
+  & button {
+    background-color: burlywood;
+    width: 4rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    &:hover {
+      background-color: beige;
+    }
+  }
 `;
-export const mockApiButton = css`
-  background-color: burlywood;
-  font-size: 0.8rem;
-  width: 14rem;
+
+export const page = css`
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
 `;

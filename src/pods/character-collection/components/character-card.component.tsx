@@ -11,7 +11,6 @@ import { CharacterApi } from '../api';
 
 interface Props {
   character: CharacterApi;
-  // onEdit: (id: string) => void;
 }
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
