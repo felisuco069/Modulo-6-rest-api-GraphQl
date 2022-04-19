@@ -4,6 +4,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import {
   CharacterCollectionScene,
   CharacterScene,
+  EpisodesCollectionScene,
   LocationCollectionScene,
 } from 'scenes';
 
@@ -14,10 +15,10 @@ export const RouterComponent: React.FunctionComponent = () => {
         <Routes>
           <Route path="/" element={<CharacterCollectionScene />} />
           <Route path="/characters" element={<CharacterCollectionScene />} />
+          <Route path="/characterList" element={<CharacterCollectionScene />} />
           <Route path="/characters/:id" element={<CharacterScene />} />
-          <Route path="/locations" element={<LocationCollectionScene />} />
-          {/* <Route path="/episodes" element={<EpisodesCollectionScene />} /> */}
-          {/* <Route path="/characterList" element={<CharacterListCollectionScene />} /> */}
+          <Route path="/Locations" element={<LocationCollectionScene />} />
+          <Route path="/episodes" element={<EpisodesCollectionScene />} />
         </Routes>
       </MyContextProvider>
     </HashRouter>

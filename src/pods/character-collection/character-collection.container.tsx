@@ -5,11 +5,12 @@ import * as classes from './character-collection.styles';
 import { MyContext } from 'core/context/myContext';
 import { useCharacterCollection } from './character-collection.hook';
 import { CharacterCollectionComponent } from './character-collection.component';
+import { CharacterListComponent } from './character-list.component';
 
-export const CharacterCollectionContainer = () => {
+export const CharacterCollectionContainer: React.FC = () => {
   const { characterCollection, loadCharacterCollection } =
     useCharacterCollection();
-  const { page } = React.useContext(MyContext);
+  const { page, selection } = React.useContext(MyContext);
   const [searched, setSearched] = React.useState('');
 
   React.useEffect(() => {
@@ -28,7 +29,13 @@ export const CharacterCollectionContainer = () => {
           onChange={(e) => setSearched(e.target.value)}
         />
       </div>
-      <CharacterCollectionComponent characterCollection={characterCollection} />
+      {selection !== 'List Characters' ? (
+        <CharacterCollectionComponent
+          characterCollection={characterCollection}
+        />
+      ) : (
+        <CharacterListComponent characterCollection={characterCollection} />
+      )}
     </>
   );
 };

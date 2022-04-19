@@ -16,7 +16,16 @@ export const AppLayout: React.FunctionComponent = (props) => {
   const { children } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const { page, setPage } = React.useContext(MyContext);
+  const {
+    page,
+    setPage,
+    setSelection,
+    isViewPage,
+    setIsViewPage,
+    lastPage,
+    setLastPage,
+  } = React.useContext(MyContext);
+
   const navigate = useNavigate();
 
   const handleOpenMenu = (event) => {
@@ -25,12 +34,20 @@ export const AppLayout: React.FunctionComponent = (props) => {
 
   const handleSelection = (event) => {
     setAnchorEl(null);
+    setIsViewPage(true);
+    setLastPage(42);
+    setPage(1);
+
     switch (event.currentTarget.innerText) {
       case 'Home':
-        navigate('/characters');
+        {
+          navigate('/');
+          setSelection(event.currentTarget.innerText);
+        }
         break;
-      case 'Character':
+      case 'List Characters':
         navigate('/characterList');
+        setSelection(event.currentTarget.innerText);
         break;
       case 'Location':
         navigate('/locations');
@@ -71,10 +88,12 @@ export const AppLayout: React.FunctionComponent = (props) => {
           </Menu>
         </div>
       </AppBar>
-      <div className={classes.page}>
-        <Typography>Page: {page}</Typography>
-        <Pagination count={42} page={page} onChange={handleChange} />
-      </div>
+      {isViewPage ? (
+        <div className={classes.page}>
+          <Typography>Page: {page}</Typography>
+          <Pagination count={lastPage} page={page} onChange={handleChange} />
+        </div>
+      ) : null}
       <main className={classes.content}>{children}</main>
     </>
   );

@@ -28,6 +28,14 @@ export const search = css`
   }
 `;
 
+export const link = css`
+  color: blue;
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 export const list = css`
   display: grid;
   grid-template-columns: repeat(1, 1fr);

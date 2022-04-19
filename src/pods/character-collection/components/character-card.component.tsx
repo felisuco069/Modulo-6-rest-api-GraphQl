@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import * as classes from './character-card.styles';
 import { CharacterApi } from '../api';
+import { MyContext } from 'core/context/myContext';
 
 interface Props {
   character: CharacterApi;
@@ -15,11 +16,13 @@ interface Props {
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
   const { character } = props;
+  const { setIsViewPage } = React.useContext(MyContext);
 
   const navigate = useNavigate();
 
   const handleNavigate = () => {
     navigate(`/characters/${character.id}`);
+    setIsViewPage(false);
   };
 
   return (
